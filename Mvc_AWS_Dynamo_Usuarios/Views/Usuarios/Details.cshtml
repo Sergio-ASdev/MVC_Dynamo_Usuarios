@@ -1,0 +1,49 @@
+﻿@model Mvc_AWS_Dynamo_Usuarios.Models.Usuario
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.idusuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.idusuario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.fechaalta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.fechaalta)
+        </dd>
+    </dl>
+    @if (Model.Imagen != null)
+    {
+        @foreach (var item in Model.Imagen)
+        {
+            <img src="@item.imagen" style="width:300px;" />
+        }
+     }
+    </div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

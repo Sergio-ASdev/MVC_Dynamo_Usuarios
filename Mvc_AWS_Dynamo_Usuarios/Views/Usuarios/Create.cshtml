@@ -1,0 +1,59 @@
+﻿@model Mvc_AWS_Dynamo_Usuarios.Models.Usuario
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Usuario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="idusuario" class="control-label"></label>
+                <input asp-for="idusuario" class="form-control" value="1"/>
+                <span asp-validation-for="idusuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nombre" class="control-label"></label>
+                <input asp-for="nombre" class="form-control" value="sergio"/>
+                <span asp-validation-for="nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descripcion" class="control-label"></label>
+                <input asp-for="descripcion" class="form-control" value="examen2"/>
+                <span asp-validation-for="descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fechaalta" class="control-label"></label>
+                <input asp-for="fechaalta" class="form-control" value="12/05/2021"/>
+                <span asp-validation-for="fechaalta" class="text-danger"></span>
+            </div>
+
+            <h3>Opcional:</h3>
+            
+            <div class="form-group">
+                <label>Titulo de la imagen</label>
+                <input type="text" name="titulo" class="form-control" value="perfil"/><br/>
+            </div>
+
+            <label>Seleccione un fichero: </label>
+            <input type="file" name="file" class="form-control-file" />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

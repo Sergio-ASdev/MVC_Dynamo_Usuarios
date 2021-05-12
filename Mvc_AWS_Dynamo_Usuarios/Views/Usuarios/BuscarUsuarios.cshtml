@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Mvc_AWS_Dynamo_Usuarios.Models.Usuario>
+
+@{
+    ViewData["Title"] = "BuscarUsuarios";
+}
+
+<h1>BuscarUsuarios</h1>
+
+<form method="post">
+    <input type="text" name="coso" class="form-control" />
+
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.idusuario)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.fechaalta)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idusuario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fechaalta)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1 style="color:blue">No existe coches en DynamoDb</h1>
+}
+
+
